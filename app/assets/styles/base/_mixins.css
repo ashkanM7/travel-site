@@ -1,4 +1,5 @@
 @define-mixin atSmall{
+    /* the value for the min-with is 430px but for the sake of testing small screen functionality we change it to 830px */
     @media(min-width: 430px){
         @mixin-content;
     }
