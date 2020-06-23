@@ -1,0 +1,31 @@
+.primary-nav{
+
+    &--pull-right{
+        float: right;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+        /* because we float them left then we need to do the following  */
+        @mixins clearfix;
+    }
+
+    li {
+        /* to remove bullet point */
+        list-style: none;
+        float: left;
+        padding: 20px;
+    }
+
+    a {
+        color: #FFF;
+        text-decoration: none;
+        font-weight: 300;
+        display: block;
+        padding: 0;
+    }
+
+    
+
+}
