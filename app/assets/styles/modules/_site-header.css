@@ -1,38 +1,159 @@
 .site-header{
-    padding: 10px 0;
+    padding:10px 0;
     position: absolute;
-    width: 100%;
-   
     z-index: 2;
-    
+    width:100%;
+    transition: background-color .3s ease-out;
+
+    &--is-expanded{
+        background-color: rgba($mainBlue, .55)
+    }
+
     @mixin atMedium{
         background-color: rgba($mainBlue, .3);
     }
-    /* to be able to write above syntax we installed postcss-hexrgba */
 
-    &__menu-content{
-        display: none;
+    
+    
+
+    &__btn-container{
         @mixin atMedium{
-            display: block;
+            float: right;
         }
     }
 
-    &__btn-container{
-        float: right;
-    }
-
     &__logo{
-        position: absolute;
+        position: absolute; 
         top: 0;
         left: 50%;
         transform: translateX(-50%);
         background-color: $mainBlue;
-        padding: 13px 29px;
+        padding:14px 29px;
 
         @mixin atMedium{
             left: auto;
-            transform: translateX(0);
-            padding: 25px 36px;
+        transform: translateX(0);
+        padding:25px 36px;
         }
     }
+    &__menu-icon{
+        width: 20px;
+        height: 19px;
+        
+        position: absolute;
+        z-index: 10;
+        top:10px;
+        right: 10px;
+
+        /* &__top{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 20px;
+            height: 3px;
+            background-color: #FFF; 
+        } tidier way to do above is : */
+
+        &::before{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 20px;
+            height: 3px;
+            background-color: #FFF; 
+            transform-origin: 0 0; /*move the pivot point to the top left*/
+            transition: transform .3s ease-out;/*to gradualy change the shape of the bar*/
+        }
+
+        &__middle{
+            position: absolute;
+            top: 8px;
+            left: 0;
+            width: 20px;
+            height: 3px;
+            background-color: #FFF;
+            transition: all .3s ease-out;
+            transform-origin: 0 50%; 
+        }
+
+        /* &__bottom{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 20px;
+            height: 3px;
+            background-color: #FFF; 
+        } */
+
+        &::after{
+            content:"";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 20px;
+            height: 3px;
+            background-color: #FFF; 
+            transform-origin: 0 100%; /* 0 transfers the pivot point to the left and 100% transfers to the bottom*/
+            transition: transform .3s ease-out;
+        }
+    
+        
+
+        @mixin atMedium{
+            display: none;
+        }
+
+    }
+
+    &__menu-icon--close-x{
+
+        &::before{
+            transform: rotate(45deg) scaleX(1.25) ;
+
+        }
+
+        &::after{
+            transform:rotate(-45deg) scaleX(1.25) translateY(1px);
+        }
+
+        .site-header__menu-icon__middle{
+            opacity:0;
+            transform: scaleX(0);
+
+        }
+
+    }
+
+    &__menu-content{
+        /* display: none; we use opacity instead of display*/
+         opacity: 0; /*Hides the menu content on small screen  but it is still available on the screen*/
+        transform: scale(1.2); /*give tranforming effect when box is cliked*/
+         transition: all .3s ease-out;
+         /* in order to avoid user to accidentally click on the menu content on small screen 
+         we do the following: positon: relative & z-index: a negative value; to 
+         put it in the lawest leyer of the page */
+         position: relative;
+         z-index: -10;
+        padding-top: 90px;
+        text-align: center;
+
+        @mixin atMedium{
+            /* display: block; */
+            opacity: 1;
+            z-index: 1;
+            transform:scale(1);
+            padding-top:0;
+        }
+
+        &--is-visible{
+            /* display: block; */
+            opacity: 1; /*displays menu content*/
+            z-index: 1; /* to bring back the content menu on small screen 
+            when the box is clicked*/
+            transform: scale(1);
+        
+        }
+    }
+
 }

@@ -7,6 +7,7 @@
     }
 
     &__text-content{
+        padding-top: 60px;
         position: absolute;
         top: 50%;   
         left: 0;
@@ -21,10 +22,6 @@
         color: $mainBlue;
         margin: 0;
         font-size: 2rem;
-
-        /* @media(min-width: 530px){
-            font-size: 4.8rem;
-        } */
 
         
          @mixin atSmall{
