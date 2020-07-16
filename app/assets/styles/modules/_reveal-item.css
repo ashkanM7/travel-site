@@ -1,0 +1,12 @@
+.reveal-item{
+     opacity: 0; /*to hide the element */
+     transition: opacity 1.5s ease-out, transform 1.5s ease-out; /* to start out the item a bit larger transform:scale(1.5) 
+     and then show it in regular size by transform: scale(1) */
+     transform: scale(1.5);
+
+    &--is-visible{
+        opacity: 1;
+        transform: scale(1);
+        
+    }
+}
