@@ -1,0 +1,50 @@
+.modal {
+    opacity: 0;
+    visibility: hidden;
+    transform: scaleX(1.2);
+    transition: all .3s ease-out;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, .94);
+    z-index: 5;
+
+    display: flex;
+
+    &--is-visible{
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1);
+    }
+
+    &__inner {
+        flex: 1; /*Sets to use all the available space */
+        margin: auto; /*in combination with flex box will center it*/
+    }
+
+    &__description{
+        text-align: center; /*centers the text*/
+        font-size: 1.3rem;
+        font-weight: 300;
+        line-height: 1.65;  /*to push Get In Touch icon higher*/
+        
+    }
+
+    &__close{
+        /* To position "X" on the top right corner*/
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 1.7rem;
+        transform: scaleX(1.3); /*Stretches the icon on its x axis*/
+        transform-origin: 100% 0; /*100%==>far right corner, 0==>top up corner*/
+        cursor: pointer; /*make the cursor look like a link when you hover it on the X*/
+        color: $mainBlue;
+
+        &:hover{
+            color: $mainOrange;
+        }
+    } 
+}
