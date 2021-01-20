@@ -3,8 +3,10 @@ import "lazysizes"
 import MobileMenue from "./modules/MobileMenu";
 import RevealOnScroll from "./modules/revealOnScroll";
 import StickyHeader from "./modules/StickyHeader";
- import Modal from "./modules/Modal";
+import Modal from "./modules/Modal";
+import ClientArea from "./modules/ClientArea";
 
+new ClientArea();
 new Modal();
 let stickyHeader = new StickyHeader();
 let mobileMenu = new MobileMenue();
