@@ -6,6 +6,17 @@ import StickyHeader from "./modules/StickyHeader";
 import Modal from "./modules/Modal";
 import ClientArea from "./modules/ClientArea";
 
+// React related Code goes here
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+// import react component that we created
+import MyAmazingComponent from './modules/MyAmazingComponent'
+
+
+
+ReactDOM.render(<MyAmazingComponent/>, document.querySelector("#my-react-example"))
+
 new ClientArea();
 new Modal();
 let stickyHeader = new StickyHeader();

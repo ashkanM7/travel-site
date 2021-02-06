@@ -9,7 +9,7 @@
         background-color: rgba($mainBlue, .55)
     }
 
-    @mixin atMedium{
+    @mixin atSmall{
         position: fixed;/*this fixed the header when scroll */
         background-color: rgba($mainBlue, .3);
 
